@@ -3,18 +3,26 @@ package ru.skillbranch.devintensive.utils
 object Utils {
     fun parseFullName(fullName:String?):Pair<String?,String?> {
         val parts : List<String>? = fullName?.split(" ")
-        val firstName = parts?.getOrNull(0)
-        val lastName = parts?.getOrNull(1)
+        var firstName:String?=null
+        var lastName:String?=null
+        if(!parts?.getOrNull(0).isNullOrBlank()) {
+            firstName = parts?.getOrNull(0)
+        }
+        if(!parts?.getOrNull(1).isNullOrBlank()) {
+            lastName = parts?.getOrNull(1)
+        }
         return firstName to lastName
     }
 
     fun toInitials(firstName:String?, lastName:String?):String? {
+        val first= firstName?.trim()
+        val last= lastName?.trim()
         var initials:String?=null
         return when {
-            firstName.isNullOrEmpty() && lastName.isNullOrEmpty() ->  null
-            firstName.isNullOrEmpty() && !lastName.isNullOrEmpty() -> "${lastName.get(0).toUpperCase()}"
-            !firstName.isNullOrEmpty() && lastName.isNullOrEmpty() -> "${firstName.get(0).toUpperCase()}"
-            else -> "${firstName?.get(0)?.toUpperCase()}${lastName?.get(0)?.toUpperCase()}"
+            first.isNullOrEmpty() && last.isNullOrEmpty() ->  null
+            first.isNullOrEmpty() && !last.isNullOrEmpty() -> "${last.get(0).toUpperCase()}"
+            !first.isNullOrEmpty() && last.isNullOrEmpty() -> "${first.get(0).toUpperCase()}"
+            else -> "${first?.get(0)?.toUpperCase()}${last?.get(0)?.toUpperCase()}"
 
         }
     }
