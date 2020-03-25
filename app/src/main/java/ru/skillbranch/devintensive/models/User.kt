@@ -56,7 +56,7 @@ data class User (
 
         fun respect (value:Int)= apply { this.respect = value }
 
-        fun lastVisit(value:Date)= apply { this.lastVisit = value }
+        fun lastVisit(value:Date?)= apply { this.lastVisit = value }
 
         fun isOnline(value:Boolean)= apply { this.isOnline = value }
 
