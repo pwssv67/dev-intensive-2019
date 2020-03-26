@@ -6,7 +6,7 @@ import java.util.*
 class TextMessage(id: String,
                   from: User?,
                   chat: Chat,
-                  isIncoming: Boolean,
+                  isIncoming: Boolean=false,
                   date: Date,
                   var text:String?
 ) : BaseMessage(id, from, chat, isIncoming, date) {
