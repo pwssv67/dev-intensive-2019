@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         sendButton.setOnClickListener (this)
         textTxt.text = benderObj.askQuestion()
 
-        messageEt.setOnEditorActionListener{_, actionId, _ ->
+        /*messageEt.setOnEditorActionListener{_, actionId, _ ->
             if(actionId == EditorInfo.IME_ACTION_DONE) {
                 val(phrase, color) = benderObj.listenAnswer(messageEt.text.toString().toLowerCase())
                 messageEt.setText("")
@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             } else {
                 false
             }
-        }
+        }*/
 
 
     }
@@ -65,7 +65,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 benderImage.setColorFilter(Color.rgb(r,g,b), PorterDuff.Mode.MULTIPLY)
                 textTxt.text = phrase
                // messageEt.onEditorAction(EditorInfo.IME_ACTION_DONE)
-                hideKeyboard(this)
+                //hideKeyboard(this)
             }
 
     }
