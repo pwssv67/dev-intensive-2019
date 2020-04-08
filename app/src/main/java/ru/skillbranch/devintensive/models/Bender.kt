@@ -16,13 +16,14 @@ class Bender(var status:Status = Status.NORMAL, var question: Question = Questio
             question = question.nextQuestion()
             if (question == Question.IDLE){"Отлично - ты справился\nНа этом все, вопросов больше нет" to status.color}
             else
-            { "Отлично - ты справился\n${question.question}" to status.color}
+            {"Отлично - ты справился\n${question.question}" to status.color}
         } else {
             if(status!=Status.CRITICAL){
             status = status.nextStatus()
             "Это неправильный ответ\n${question.question}" to status.color
             } else {
                 status = Status.NORMAL
+                question = Question.NAME
                 "Это неправильный ответ. Давай все по новой\n${question.question}" to status.color
             }
         }
@@ -36,7 +37,7 @@ class Bender(var status:Status = Status.NORMAL, var question: Question = Questio
         CRITICAL(Triple(255, 0, 0)) ;
 
         fun nextStatus():Status {
-            return if(this.ordinal< values().lastIndex) {
+            return if(this.ordinal<values().lastIndex) {
                 values()[this.ordinal+1]
             } else {
                 values()[0]
@@ -45,7 +46,7 @@ class Bender(var status:Status = Status.NORMAL, var question: Question = Questio
     }
 
     enum class Question(val question: String, val answers: List<String>) {
-        NAME("Как меня зовут?", listOf("Бендер", "bender")) {
+        NAME("Как меня зовут?", listOf("бендер", "bender")) {
             override fun nextQuestion(): Question = PROFESSION
         },
         PROFESSION("Назови мою профессию?", listOf("сгибальщик", "bender")){
