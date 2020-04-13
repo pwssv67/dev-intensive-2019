@@ -80,7 +80,7 @@ class ProfileActivity : AppCompatActivity() {
             viewModel.switchTheme()
         }
 
-        et_repository.addTextChangedListener(object:TextWatcher{
+       /* et_repository.addTextChangedListener(object:TextWatcher{
             override fun afterTextChanged(s: Editable?) {}
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
@@ -89,7 +89,7 @@ class ProfileActivity : AppCompatActivity() {
                     wr_repository.setError("Невалидный адрес репозитория")
                 } else {wr_repository.setError("")}
             }
-        })
+        })*/
     }
 
     private fun initViewModel(){
