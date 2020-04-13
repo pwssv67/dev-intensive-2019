@@ -11,7 +11,7 @@ import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
-import androidx.core.widget.addTextChangedListener
+//import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
