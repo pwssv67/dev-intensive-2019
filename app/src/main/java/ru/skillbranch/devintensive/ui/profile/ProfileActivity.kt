@@ -65,11 +65,11 @@ class ProfileActivity : AppCompatActivity() {
 
         btn_edit.setOnClickListener{
             if (isEditMode) {
-                et_repository.setText(et_repository.text.trim())
+                /*et_repository.setText(et_repository.text.trim())
                 if (!isValidRepository(et_repository.text.toString())) {
                     et_repository.text.clear()
                     wr_repository.setError("")
-                }
+                }*/
                 saveProfileInfo()
             }
             isEditMode = !isEditMode
