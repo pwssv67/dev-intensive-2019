@@ -1,5 +1,7 @@
 package ru.skillbranch.devintensive.models
 
+import ru.skillbranch.devintensive.models.data.Chat
+import ru.skillbranch.devintensive.models.data.User
 import java.util.*
 
 abstract class BaseMessage(
@@ -15,14 +17,14 @@ abstract class BaseMessage(
         fun makeMessage(from: User?,
                         chat: Chat,
                         date:Date = Date(),
-                        type: String ="text" ,
+                        type: String ="text",
                         payload:Any?,
                         isIncoming:Boolean = false) : BaseMessage
         {
             lastId++
             return when (type) {
                 "image", "Image", "IMAGE" -> ImageMessage("$lastId", from, chat,isIncoming,  date= date, image = payload as String)
-                else -> TextMessage("$lastId", from, chat,isIncoming, date= date,text= payload as String)
+                else -> TextMessage("$lastId", from, chat,isIncoming, date= date,readen = false,text= payload as String)
             }
         }
     }

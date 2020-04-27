@@ -1,4 +1,4 @@
-package ru.skillbranch.devintensive.models
+package ru.skillbranch.devintensive.models.data
 
 import ru.skillbranch.devintensive.utils.Utils
 import java.util.*
@@ -21,7 +21,7 @@ data class User (
         avatar = null
     )
 
-    constructor (builder:Builder):this(
+    constructor (builder: Builder):this(
         id = builder.id,
         firstName = builder.firstName,
         lastName = builder.lastName,
@@ -60,16 +60,21 @@ data class User (
 
         fun isOnline(value:Boolean)= apply { this.isOnline = value }
 
-        fun build():User = User(this)
+        fun build(): User =
+            User(this)
 
     }
 
     companion object Factory{
         private var lastId: Int = -1;
-        fun makeUser(fullName:String):User{
+        fun makeUser(fullName:String): User {
             lastId++
             val (firstName,lastName) = Utils.parseFullName(fullName)
-            return User("$lastId", firstName, lastName)
+            return User(
+                "$lastId",
+                firstName,
+                lastName
+            )
         }
     }
 }
